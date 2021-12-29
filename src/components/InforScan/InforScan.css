@@ -1,0 +1,88 @@
+.img-info-scan{
+    height: 650px;
+    object-fit: cover;
+}
+.line{
+    position: absolute;
+    height: 3px;
+    width: 140px;
+    border-radius: 20px;
+    background-color: #3b3b3b;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 35px;
+}
+.header-name{
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.scanned-name{
+    position: absolute;
+    top: 132px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    width: 261px;
+    text-align: center;
+}
+.scanned-address{
+    position: absolute;
+    top: 155px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 261px;
+    text-align: center;
+}
+.scanned-avatar{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.scanned-card{
+    width: 260px;
+    height: 55px;
+    color: black;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 4px rgba(36, 36, 36, 0.158);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+.scanned-card-0{
+    position: absolute;
+    bottom: 364px;
+    left: 41px;
+}
+.scanned-card-1{
+    position: absolute;
+    bottom: 298px;
+    left: 41px;
+}
+.scanned-card-2{
+    position: absolute;
+    bottom: 232px;
+    left: 41px;
+}
+.scanned-card-3{
+    position: absolute;
+    bottom: 166px;
+    left: 41px;
+}
+.scanned-qr{
+    position: absolute;
+    top: 15px;
+    left: 17px;
+    border: 2px solid white;
+    border-radius: 16px;
+}

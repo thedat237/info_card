@@ -1,0 +1,19 @@
+.logo-img{
+    object-fit: cover;
+    width: 150px;
+}
+.header-menu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.header-menu-link{
+    color: var(--gray-dark);
+    transition: color 0.2s ease-in-out;
+}
+.header-menu-link:hover{
+    color: #3b3b3b;
+}
+.header-menu-item:not(:first-child){
+    margin-left: 75px;
+}
