@@ -9,7 +9,7 @@ export default function Banner02() {
                 <div className='container'>
                     <h2 className='banner__heading text-dark'><span>Infor card - Xu hướng kết nối</span><span>chuyên nghiệp hiện đại</span> </h2>
                     <div className='d-flex py-5'>
-                        <img src={peopleCard} className="section1-img"/>
+                        <img src={peopleCard} className="section1-img" alt='img'/>
                         <div className='section1-infor'>
                             <h2 className='section1-title'>KHÔNG CẦN CÀI ĐẶT GÌ THÊM</h2>
                             <h5 className='section1-desc mt-3'>Chạm thẻ Metap vào điện thoại để chia sẻ thông tin, giảm thời gian trao đổi các mạng xã hội như Facebook, Instagram, Zalo, Số điện thoại, Email và thông tin liên lạc</h5>

@@ -1,8 +1,9 @@
-.img-info-scan{
+.img-info-scan {
     height: 650px;
     object-fit: cover;
 }
-.line{
+
+.line {
     position: absolute;
     height: 3px;
     width: 140px;
@@ -12,13 +13,15 @@
     transform: translateX(-50%);
     bottom: 35px;
 }
-.header-name{
+
+.header-name {
     position: absolute;
     top: 28px;
     left: 50%;
     transform: translateX(-50%);
 }
-.scanned-name{
+
+.scanned-name {
     position: absolute;
     top: 132px;
     left: 50%;
@@ -27,7 +30,8 @@
     width: 261px;
     text-align: center;
 }
-.scanned-address{
+
+.scanned-address {
     position: absolute;
     top: 155px;
     left: 50%;
@@ -35,7 +39,8 @@
     width: 261px;
     text-align: center;
 }
-.scanned-avatar{
+
+.scanned-avatar {
     width: 60px;
     height: 60px;
     object-fit: cover;
@@ -45,7 +50,8 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.scanned-card{
+
+.scanned-card {
     width: 260px;
     height: 55px;
     color: black;
@@ -59,27 +65,32 @@
     align-items: center;
     text-decoration: none;
 }
-.scanned-card-0{
+
+.scanned-card-0 {
     position: absolute;
     bottom: 364px;
     left: 41px;
 }
-.scanned-card-1{
+
+.scanned-card-1 {
     position: absolute;
     bottom: 298px;
     left: 41px;
 }
-.scanned-card-2{
+
+.scanned-card-2 {
     position: absolute;
     bottom: 232px;
     left: 41px;
 }
-.scanned-card-3{
+
+.scanned-card-3 {
     position: absolute;
     bottom: 166px;
     left: 41px;
 }
-.scanned-qr{
+
+.scanned-qr {
     position: absolute;
     top: 15px;
     left: 17px;

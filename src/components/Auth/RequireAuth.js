@@ -5,6 +5,7 @@ import AuthContext from "../../context/auth";
 const RequireAuth = (props) => {
     const mode = props.mode || "navigate"
     const authCtx = useContext(AuthContext)
+    
     if (!authCtx.user) {
         if(mode === "navigate") {
             return <Navigate to="/login" />

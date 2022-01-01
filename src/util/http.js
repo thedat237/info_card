@@ -4,7 +4,7 @@ const axiosInstance = axios.create({
     baseURL: "http://localhost:5000"
 })
 
-const addJwt = (jwt) => {
+const addJwt = jwt => {
     axiosInstance.interceptors.request.use((config) => {
         return {
             ...config.headers,

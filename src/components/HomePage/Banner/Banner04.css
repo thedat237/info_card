@@ -1,21 +1,24 @@
-.demo-card-img{
+.demo-card-img {
     width: 500px;
 }
-.demo-card{
+
+.demo-card {
     position: relative;
 }
-.form-demo-card{
+
+.form-demo-card {
     width: 50%;
-    /* margin-left: 30px; */
 }
-.demo-card-qr{
+
+.demo-card-qr {
     position: absolute;
     top: 15px;
     left: 17px;
     border: 2px solid white;
     border-radius: 16px;
 }
-.demo-card-name{
+
+.demo-card-name {
     position: absolute;
     color: white;
     top: 246px;
@@ -25,6 +28,7 @@
     font-size: 24px;
     line-height: 33px;
 }
-.card-demo-luxury{
+
+.card-demo-luxury {
     width: 100px;
 }

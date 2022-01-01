@@ -1,7 +1,5 @@
-import React from 'react'
 import "./Banner03.css"
 import bannerStep from "../../../assets/banner_step.png"
-import { Button } from 'react-bootstrap'
 import bannerCard from "../../../assets/banner_card.png"
 import bannerSocial from "../../../assets/banner_social.png"
 import bannerPhone2 from "../../../assets/banner_phone2.png"
@@ -12,7 +10,7 @@ export default function Banner03() {
     return (
         <>
             <div className='banner-step d-flex justify-content-center mb-5'>
-                <img src={bannerStep}/>
+                <img src={bannerStep} alt='img'/>
             </div>
             <div className='container pb-5 d-flex'>
                 <div className='step-infor'>
@@ -22,7 +20,7 @@ export default function Banner03() {
                     <h5 className='section-desc'><span>Điền tên trên thẻ, đặt mua</span> và thanh toán</h5>
                     <button className='btn btn-primary'>Đặt mua</button>
                 </div>
-                <img src={bannerCard} className='step-card-img mt-5'/>
+                <img src={bannerCard} className='step-card-img mt-5' alt='img'/>
             </div>
 
             <div className='container pb-5 d-flex flex-column'>
@@ -30,7 +28,7 @@ export default function Banner03() {
                     <span>Bước 2: Thêm thông tin</span>cá nhân vào thẻ
                 </h2>
                 <div className='step-infor-2 d-flex align-items-center'>
-                    <img src={bannerSocial}/>
+                    <img src={bannerSocial} alt='img'/>
                     <h3 className='section-desc'><span>Khi nhận hàng, bạn nhận</span><span>được thẻ và tờ hướng dẫn,</span><span>bạn làm theo tờ hướng dẫn</span><span>để tự thêm thông tin cá</span> nhân vào thẻ.</h3>
                 </div>
             </div>
@@ -41,9 +39,9 @@ export default function Banner03() {
                 </h2>
                 <h3>Hoạt động trên cả Android và IOS, không cần cài đặt gì thêm</h3>
                 <div className='step-infor-3 d-flex align-items-center justify-content-between'>
-                    <img src={bannerCard3} className='step-phone-img mt-5'/>
+                    <img src={bannerCard3} className='step-phone-img mt-5' alt='img'/>
                     <div className='d-flex flex-column align-items-center'>
-                        <img src={bannerPhone2} className='step-phone-img mt-5'/>
+                        <img src={bannerPhone2} className='step-phone-img mt-5' alt='img'/>
                         <div className='d-flex flex-column align-items-center mt-3'>
                             <h4>QUÉT THẺ</h4>
                             <h6>Hoạt động trên hầu hết điện thoại Android & iOS</h6>
@@ -51,7 +49,7 @@ export default function Banner03() {
                         </div>
                     </div>
                     <div className='d-flex flex-column align-items-center'>
-                        <img src={bannerPhone} className='step-phone-img mt-5'/>
+                        <img src={bannerPhone} className='step-phone-img mt-5' alt='img'/>
                         <div className='d-flex flex-column align-items-center mt-3'>
                             <h4>CHẠM THẺ</h4>
                             <h6>Hoạt động trên hầu hết điện thoại Android & iOS</h6>

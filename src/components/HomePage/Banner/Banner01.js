@@ -1,4 +1,3 @@
-import React from 'react'
 import "./Banner01.css"
 import bannerPhone from "../../../assets/banner_phone.png"
 import bannerCard4 from "../../../assets/banner_card4.png"
@@ -17,8 +16,8 @@ export default function Banner01() {
                             <Button variant="primary">Đặt mua</Button>
                         </div>
                         <div className='d-flex justify-content-between banner-img'>
-                            <img src={bannerPhone} className='phone-img'/>
-                            <img src={bannerCard4} className='card-image'/>
+                            <img src={bannerPhone} className='phone-img' alt='img'/>
+                            <img src={bannerCard4} className='card-image' alt='img'/>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,3 @@
-import React from 'react'
 import "./Footer.css"
 import fb from "../../assets/fb.png"
 
@@ -12,10 +11,9 @@ export default function Footer() {
                     </h2>
                     <h6 className='text-white fw-bold'>Theo dõi chúng tôi tại</h6>
                     <a href='/'>
-                        <img src={fb} className="fb-img"/>
+                        <img src={fb} className="fb-img" alt='img'/>
                     </a>
                     <p className='section-desc fw-bold text-white mt-3'><span>dat9d3@gmail.com</span><span>©2021 InfoCard</span></p>
-
                 </div>
                 <div className='d-flex flex-column'>
                     <h5 className='text-white fw-bold'>Thông tin liên hệ</h5>

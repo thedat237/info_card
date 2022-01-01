@@ -1,11 +1,13 @@
-.bg-modal{
+.bg-modal {
     background-color: black !important;
 }
-.modal-header{
+
+.modal-header {
     border-bottom: none !important;
     justify-content: center !important;
 }
-.modal-footer{
+
+.modal-footer {
     border-top: none !important;
     justify-content: center !important;
 }

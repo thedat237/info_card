@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { Button } from 'react-bootstrap'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import AuthContext from '../../context/auth'
 import RequireAuth from '../Auth/RequireAuth'
@@ -27,13 +26,15 @@ export default function HomePage() {
                 </RequireAuth>
             </div>
             {
-                authCtx.user 
-                ? null 
-                : (<div className='d-flex justify-content-center container mb-3'>
-                    <NavLink to="/login">
-                        <button className='btn btn-primary w-100'>Đặt mua</button>
-                    </NavLink>
-                </div>)
+                authCtx.user ? 
+                null : 
+                (
+                    <div className='d-flex justify-content-center container mb-3'>
+                        <NavLink to="/login">
+                            <button className='btn btn-primary w-100'>Đặt mua</button>
+                        </NavLink>
+                    </div>
+                )
             }
         </div>
     )

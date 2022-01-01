@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import { useState } from 'react'
 import "./ModalSuccess.css"
 import { Modal, Button } from 'react-bootstrap'
 
@@ -11,10 +11,10 @@ export default function ModalSuccess(props) {
         address: ""
     })
 
-    const onChange = (event) => {
-        const newValue = event.target.value
-        const field = event.target.name
-        setValueModal((prev) => {
+    const onChange = e => {
+        const newValue = e.target.value
+        const field = e.target.name
+        setValueModal(prev => {
             return {
                 ...prev,
                 [field] : newValue
