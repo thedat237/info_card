@@ -9,11 +9,6 @@
     --yellow-star: #ffcb46;
 }
 
-.container {
-    padding-left: 100px !important;
-    padding-right: 100px !important;
-}
-
 .h-646 {
     height: 646px;
 }
@@ -21,8 +16,9 @@
 .banner__heading {
     font-size: 45px;
     line-height: 1.2;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: white;
+    font-weight: 700;
 }
 
 .banner__heading span {
@@ -33,7 +29,7 @@
     font-weight: 500;
 }
 
-.section-desc span {
+.section-desc {
     display: block;
 }
 

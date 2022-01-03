@@ -1,210 +1,62 @@
-import React, { useContext, useEffect, useState } from 'react'
 import "./Banner04.css"
-import cardType from '../../../data/dataCard'
-import QRCode from "qrcode.react"
-import AuthContext from '../../../context/auth'
-import {Dropdown, FormControl, InputGroup, DropdownButton, Button } from "react-bootstrap"
-import socialNetWork from '../../../data/socialNetWork'
-import ModalSuccess from '../Modal/ModalSuccess'
+import bannerVideo from '../../../assets/video-card.mp4'
+import bannerSocial from "../../../assets/banner_social.png"
+import bannerPhone2 from "../../../assets/banner_phone2.png"
+import bannerPhone from "../../../assets/banner_phone.png"
+import bannerCard3 from "../../../assets/banner_card3.png"
 
 export default function Banner04() {
-    const authCtx = useContext(AuthContext)
-    const [selectedImg, setSelectedImg] = useState(cardType[0].src)
-    const [selectedNameCard, setSelectedNameCard] = useState(cardType[0].name)
-    const [imageQRcode, setImageQRcode] = useState("")
-    const [showModal, setShowModal] = useState(false);
-    const [name, setName] = useState("")
-    const [avatarUrl, setAvatarUrl] = useState()
-    const [listSocials, setListSocials] = useState([])
-    const [socialName, setSocialName] = useState('')
-    const [socialLink, setSocialLink] = useState('')
-
-    const [data, setData] = useState(() => {
-        const storageInfoQR = JSON.parse(localStorage.getItem("dataQR"))
-        return storageInfoQR
-    })
-    const handleCloseModal = () => setShowModal(false);
-    const handleShowModal = () => setShowModal(true);
-
-    const onChangeAvatar = (e) => {
-        const fileAvatar = e.target.files[0]
-        fileAvatar.preview = URL.createObjectURL(fileAvatar)
-        setAvatarUrl(fileAvatar) 
-    }
-
-    const handleChangeSocial = e => {
-        setSocialLink(e.target.value)
-    }
-
-    const handleSelect = name => {
-        setSocialName(name)
-    }
-
-    const onAddSocial = e => {
-        e.preventDefault()
-        setListSocials([
-            ...listSocials,
-            { 
-                name: socialName,
-                link: socialLink
-            }
-        ])
-    }
-
-    const onSubmitForm = e => {
-        e.preventDefault()
-        setData(() => {
-            const newData = {
-                nameUser: name,
-                avatarUrl: avatarUrl.preview,
-                nameCard: selectedImg,
-                colorCard: selectedNameCard,
-                qrImage: imageQRcode,
-                social: listSocials
-            }
-            const jsonData = JSON.stringify(newData)
-            localStorage.setItem("dataQR", jsonData)
-        })
-    }
-
-    useEffect(() => {
-        return () => avatarUrl && URL.revokeObjectURL(avatarUrl.preview)
-    }, [avatarUrl])
-
-    useEffect(() => {
-        setImageQRcode(`http://localhost:3000/thong-tin-scan/${authCtx.user.id}`)
-    }, [data])
-
     return (
-        <>
-            <div className='container m-5'>
-                <div className='d-flex flex-column align-items-center'>
-                    <h2 className='banner__heading text-dark fw-bold'>
-                        Infor card
-                    </h2>
-                    <h2 className='banner__heading text-dark fw-bold'>
-                        Thẻ cá nhân thông minh
+        <div className="container">
+            <div className="mt-5">
+                <h2 className='banner__heading text-dark'>Bước 1: Nhập Tên</h2>
+                <div className='step-infor'>
+                    <div>
+                        <h5 className='fs-2 mb-3'>Điền tên trên thẻ, đặt mua<br /> và thanh toán</h5>
+                        <button className='btn btn-primary'>Đặt mua</button>
+                    </div>
+                    <video
+                        src={bannerVideo}
+                        className="banner-video"
+                        autoPlay
+                        loop
+                        muted
+                    />
+                </div>
+            </div>
+
+            <div className='mt-5'>
+                <h2 className='banner__heading text-dark'>Bước 2: Thêm thông tin <br />cá nhân vào thẻ</h2>
+                <div className='step-infor align-items-center'>
+                    <img src={bannerSocial} alt='img'/>
+                    <h2 className='step-text'>
+                        Khi nhận hàng, bạn nhận<br /> được thẻ và tờ hướng dẫn,<br />bạn làm theo tờ hướng dẫn<br /> để tự thêm thông tin cá<br /> nhân vào thẻ.
                     </h2>
                 </div>
-                <div className='d-flex gap-5'>
-                    <div className='demo-card'>
-                        <img src={selectedImg} className='demo-card-img' alt='iimg'/>
-                        <QRCode 
-                            className="demo-card-qr"  
-                            size={100}
-                            value={imageQRcode ? imageQRcode : "NA"}
-                            bgColor={"#f7f7f7"}
-                            fgColor={"#000000"}
-                            level={"L"}
-                            includeMargin={false}
-                            renderAs={"svg"}
-                        /> 
-                        <h6 className='demo-card-name'>{name}</h6>
+            </div>
+
+            <div className='mt-5'>
+                <h2 className='banner__heading text-dark'>Bước 3: Sử dụng</h2>
+                <h3>Hoạt động trên cả Android và IOS, không cần cài đặt gì thêm</h3>
+                <div className='step-infor-3 d-flex align-items-center justify-content-around'>
+                    <div className='d-flex flex-column align-items-center'>
+                        <img src={bannerPhone2} className='step-phone-img mt-5' alt='img'/>
+                        <div className='d-flex flex-column align-items-center mt-3'>
+                            <h4>QUÉT THẺ</h4>
+                            <h6>Hoạt động trên hầu hết điện thoại Android & iOS</h6>
+                            <h6>(iPhone 5S trở lên)</h6>
+                        </div>
                     </div>
-                    <div className='d-flex flex-column align-items-start form-demo-card'>
-                        <form className='w-100' onSubmit={onSubmitForm}>
-                            <div className='d-flex fw-bold fs-5 mb-3'>
-                                <span>Loại thẻ:</span>
-                                <span className='ms-3'>{selectedNameCard}</span>
-                            </div>
-                            <div className='d-flex fw-bold fs-5 mb-3'>
-                                <span>Màu sắc:</span>
-                                <div className='d-flex'>
-                                    {cardType.map((img, index) => (
-                                        <div className='cursor-pointer card-type' key={index}>
-                                            <img 
-                                                src={img.src} 
-                                                className='card-demo-luxury ms-3'
-                                                alt='img'
-                                                onClick={() => {setSelectedImg(img.src)
-                                                    setSelectedNameCard(img.name)}}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className='d-flex w-100 gap-2 mb-3'>
-                                <div className='w-100'>
-                                    <label className='form-label fw-bold fs-5'>Tên của bạn</label>
-                                    <input 
-                                        name="nameUser"
-                                        type="text"
-                                        className='form-control' placeholder='Nhập tên của bạn'
-                                        value={name}
-                                        onChange={e => setName(e.target.value)}
-                                    />
-                                </div>
-                                <div className='w-100'>
-                                    <label className='form-label fw-bold fs-5'>Avatar</label>
-                                    <input 
-                                        className='form-control' 
-                                        placeholder='Nhập tên của bạn' 
-                                        type="file"
-                                        name="avatarUrl"
-                                        onChange={onChangeAvatar}
-                                    />
-                                </div>
-                            </div>
-                            <div className='w-100 d-flex flex-column align-items-end'>
-                                {
-                                    listSocials.map((item, idx) => {
-                                        return (
-                                            <div key={idx}>
-                                                {/* {item.name} */}
-                                                <Button disabled>{item.name}</Button>
-                                                <div>
-                                                    <input type='text' value={item.link} disabled />
-                                                </div>
-                                            </div>
-                                        )
-                                    })
-                                }
-                                <div className="mb-3">
-                                    <InputGroup>
-                                        <DropdownButton
-                                            variant="outline-secondary"
-                                            title={socialName || 'Choose'}
-                                            onSelect={handleSelect}
-                                        >
-                                            {socialNetWork.map(item => (
-                                                <Dropdown.Item 
-                                                    key={item.id} 
-                                                    eventKey={item.name}
-                                                >
-                                                    {item.name}
-                                                </Dropdown.Item>
-                                            ))}
-                                        </DropdownButton>
-                                        <FormControl 
-                                            name="socialLink" 
-                                            value={socialLink} 
-                                            onChange={handleChangeSocial}
-                                        />
-                                    </InputGroup>
-                                    
-                                    <button 
-                                        className='btn btn-primary' 
-                                        onClick={onAddSocial}
-                                    >
-                                        Thêm mạng xã hội
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='d-flex justify-content-between align-items-center w-100'>
-                                <div className='d-flex'>
-                                    <p className='fw-bold fs-3 '>159,000đ</p>
-                                    <p className='ms-3 fw-bold fst-italic fs-3 text-secondary text-decoration-line-through'>
-                                        259,000đ
-                                    </p>
-                                </div>
-                                <h6 className='fw-bold'>Freeship toàn quốc</h6>
-                            </div>
-                            <button className='btn btn-primary' onClick={handleShowModal}>Đặt mua</button>
-                            {/* <ModalSuccess show={showModal} onHide={handleCloseModal} handleCloseModal={handleCloseModal}/> */}
-                        </form>
+                    <div className='d-flex flex-column align-items-center'>
+                        <img src={bannerPhone} className='step-phone-img mt-5' alt='img'/>
+                        <div className='d-flex flex-column align-items-center mt-3'>
+                            <h4>CHẠM THẺ</h4>
+                            <h6>Hoạt động trên hầu hết điện thoại Android & iOS</h6>
+                            <h6>(iPhone XS trở lên)</h6>
+                        </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -1,73 +1,63 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import "./NavBar.css"
 import logo from "../../assets/banner_logo.png"
-import {Link, NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import AuthContext from '../../context/auth'
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function NavBar() {
     const authCtx = useContext(AuthContext)
+    const [clicked, setClicked] = useState(false)
 
     // const logOut = () => {
     //     localStorage.clear()
     // }
 
     return (
-        <div className="d-flex align-items-center">
-            <div className='container'>
-                <div className="d-flex justify-content-between align-items-center header-navbar-menu p-3 nav-bar">
-                    <NavLink to='/' className='header-logo '>
-                        <img src={logo} className='logo-img' alt='imh'/>
-                    </NavLink>
-
-                    {
-                        authCtx.user ? 
-                        <>
-                            <ul className="header-menu is-active m-0">
-                                <li className="header-menu-item">
-                                    <Link to="/gioi-thieu" className="header-menu-link text-decoration-none fw-bold fs-6">
-                                        Giới thiệu
-                                    </Link>
-                                </li>
-                                <li className="header-menu-item">
-                                    <Link to="/huong-dan" className="header-menu-link text-decoration-none fw-bold fs-6">Hướng dẫn</Link>
-                                </li>
-                                <li className="header-menu-item">
-                                    <Link to={`/tao-the/${authCtx.user.id}`} className="header-menu-link text-decoration-none fw-bold fs-6">Tạo thẻ</Link>
-                                </li>
-                                <li className="header-menu-item">
-                                    <Link to={`/thong-tin-scan/${authCtx.user.id}`} className="header-menu-link text-decoration-none fw-bold fs-6">Thông tin thẻ</Link>
-                                </li>
-                            </ul>
-                            <div className='p-2 bg-dark text-white rounded'>
-                                {authCtx.user.username}
-                            </div>
-                        </> :
-                        <>
-                            <ul className="header-menu is-active m-0">
-                                <li className="header-menu-item">
-                                    <Link to="/gioi-thieu" className="header-menu-link text-decoration-none fw-bold fs-6">
-                                        Giới thiệu
-                                    </Link>
-                                </li>
-                                <li className="header-menu-item">
-                                    <Link to="/huong-dan" className="header-menu-link text-decoration-none fw-bold fs-6">Hướng dẫn</Link>
-                                </li>
-                                <li className="header-menu-item">
-                                    {/* <RequireAuth mode="navigate"> */}
-                                        <Link to="/login" className="header-menu-link text-decoration-none fw-bold fs-6">Tạo thẻ</Link>
-                                    {/* </RequireAuth> */}
-                                </li>
-                                <li className="header-menu-item">
-                                    <Link to="/login" className="header-menu-link text-decoration-none fw-bold fs-6">Thông tin thẻ</Link>
-                                </li>
-                            </ul>
-                            <NavLink to="/login" className="text-decoration-none">
-                                <button className='btn btn-primary'>Tạo thẻ</button>
-                            </NavLink>
-                        </>
-                    }
-                </div>
+        <nav className="d-flex justify-content-between container navigation-bars">
+            <Link to='/'>
+                <img src={logo} className='logo-img' alt='img'/>
+            </Link>
+            {
+                clicked === false ?
+                <FaBars className='navigation-icons' onClick={() => setClicked(true)} /> :
+                <FaTimes className='navigation-icons' onClick={() => setClicked(false)} />
+            }
+            <div className={clicked === false ? 'navigation-bars__menu' : 'navigation-bars__menu__click'}>
+                <NavLink 
+                    to="/gioi-thieu" 
+                    className='navigation-bars__menu__navlink'
+                >
+                    Giới thiệu
+                </NavLink>
+                <NavLink 
+                    to="/huong-dan" 
+                    className='navigation-bars__menu__navlink'
+                >
+                    Hướng dẫn
+                </NavLink>
+                <NavLink 
+                    to={authCtx.user ? `/tao-the/${authCtx.user._id}` : '/login'} 
+                    className='navigation-bars__menu__navlink'
+                >
+                    Tạo thẻ
+                </NavLink>
+                <NavLink 
+                    to={authCtx.user ? `/thong-tin-scan/${authCtx.user._id}` : '/login'} 
+                    className='navigation-bars__menu__navlink'
+                >
+                    Thông tin thẻ
+                </NavLink>
+                {
+                    authCtx.user ?
+                    <div className='p-2 bg-dark text-white rounded navigation-button'>
+                        {authCtx.user.username}
+                    </div> :
+                    <Link to="/login" className="text-decoration-none navigation-button">
+                        <button className='btn btn-primary'>Tạo thẻ</button>
+                    </Link>
+                }
             </div>
-        </div>
+        </nav>
     )
 }

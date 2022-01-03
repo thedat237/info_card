@@ -1,34 +1,27 @@
-.demo-card-img {
-    width: 500px;
+.banner-step {
+    background-color: #020A11;
 }
 
-.demo-card {
-    position: relative;
+.banner-video {
+    width: 550px;
 }
 
-.form-demo-card {
-    width: 50%;
+.step-card-img {
+    transform: translateX(50px);
+    width: 600px;
 }
 
-.demo-card-qr {
-    position: absolute;
-    top: 15px;
-    left: 17px;
-    border: 2px solid white;
-    border-radius: 16px;
+.step-infor {
+    display: flex;
+    justify-content: space-between;
 }
 
-.demo-card-name {
-    position: absolute;
-    color: white;
-    top: 246px;
-    left: 22px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 33px;
+.step-phone-img {
+    width: 200px;
+    border-radius: 20px;
 }
 
-.card-demo-luxury {
-    width: 100px;
+.step-text {
+    font-weight: 700;
+    line-height: inherit;
 }

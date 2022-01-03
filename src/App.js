@@ -28,7 +28,7 @@ function App() {
       return;
     }
     axios
-      .get("/me", {
+      .get("/auth/me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

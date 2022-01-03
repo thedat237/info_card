@@ -80,7 +80,7 @@ export default function ModalSuccess(props) {
                 </div> 
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" onClick={props.handleCloseModal}>
+                <Button variant="primary" onClick={props.onHide}>
                     Mua
                 </Button>
             </Modal.Footer>
