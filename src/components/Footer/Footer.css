@@ -2,3 +2,8 @@
     object-fit: cover;
     width: 80px;
 }
+
+.row-footer {
+    border: none !important;
+    box-shadow: none !important;
+}

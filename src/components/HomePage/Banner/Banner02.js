@@ -8,10 +8,10 @@ export default function Banner02() {
                Infor card - Xu hướng kết nối<br /> chuyên nghiệp hiện đại
             </h2>
             <div className='row justify-content-center align-items-center information-banner'>
-                <div className="col-xl-6">
+                <div className="col-xl-6 col-lg-6">
                     <img src={peopleCard} className="section1-img" alt='img'/>
                 </div>
-                <div className='col-xl-6'>
+                <div className='col-xl-6 col-lg-6'>
                     <h2 className='section1-title'>KHÔNG CẦN CÀI ĐẶT GÌ THÊM</h2>
                     <h5 className='section1-desc mt-3'>Chạm thẻ Metap vào điện thoại để chia sẻ thông tin, giảm thời gian trao đổi các mạng xã hội như Facebook, Instagram, Zalo, Số điện thoại, Email và thông tin liên lạc</h5>
                     <ul className='mt-3'>
