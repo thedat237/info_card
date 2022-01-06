@@ -6,8 +6,8 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function InforScan(props) {
     const userInfor= JSON.parse(localStorage.getItem("dataQR"))
-    console.log(userInfor.social);
-
+    // console.log(userInfor.avatarUrl);
+    
     return (
         <div className='container d-flex justify-content-between align-items-center'>
             <div className='demo-card'>

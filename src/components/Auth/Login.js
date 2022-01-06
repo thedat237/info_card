@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import "./Login.css"
 import bannerPeople from "../../assets/banner_people_card.jfif"
-import axios, { addJwt } from "../../util/http"
+import axios from "../../util/http"
 import AuthContext from '../../context/auth'
 import { Navigate } from 'react-router-dom'
 
@@ -10,7 +10,10 @@ export default function Login() {
     const [password, setPassword] = useState("")
     const authCtx = useContext(AuthContext)
 
-    const onLoginSubmit = async (e) => {
+    const loginGoogle = () => window.open(`${process.env.REACT_APP_OAUTH_URL}/auth/google`, '_self')
+    const loginGithub = () => window.open(`${process.env.REACT_APP_OAUTH_URL}/auth/github`, '_self')
+
+    const onLoginSubmit = async e => {
         e.preventDefault()
         try{
             const response = await axios.post("/auth/login", {
@@ -18,15 +21,16 @@ export default function Login() {
                 password: password
             })
             authCtx.setUser(response.data.user)
-            localStorage.setItem("token", response.data.token)
-            addJwt(response.data.token)
+            // console.log(response);
+            // localStorage.setItem("token", response.data.token)
+            // addJwt(response.data.token)
         } catch (err) {
             alert("Wrong username or password")
         }
     }
 
     if(authCtx.user) {
-        return <Navigate to={`/tao-the/${authCtx.user.id}`} replace={true} />
+        return <Navigate to={`/`} replace={true} />
     }
 
     return (
@@ -70,6 +74,14 @@ export default function Login() {
                                 </div>
                                 <p>Dont't have an account? <a href='/register'>Register here</a></p>
                             </form>
+                            <div>
+                                <div onClick={loginGoogle}>
+                                    Login With Google
+                                </div>
+                                <div onClick={loginGithub}>
+                                    Login With Github
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

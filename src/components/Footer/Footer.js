@@ -3,7 +3,7 @@ import fb from "../../assets/fb.png"
 
 export default function Footer() {
     return (
-        <div className='footer py-5 bg-black'>
+        <div className='py-5 bg-black'>
             <div className='container'>
                 <div className="row bg-black row-footer">
                     <div className='col-xl-4 col-lg-4 col-md-4'>

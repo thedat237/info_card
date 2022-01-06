@@ -12,7 +12,7 @@ import InforScan from "./components/InforScan/InforScan";
 import NavBar from "./components/NavBar/NavBar";
 import AuthContext from "./context/auth";
 import Register from "./components/Auth/Register";
-import axios, { addJwt } from "./util/http";
+import axios from "./util/http";
 import "./App.css";
 
 function App() {
@@ -22,20 +22,21 @@ function App() {
 
   useEffect(() => {
     /* success token*/
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setCheckingAuthUserDone(true);
-      return;
-    }
-    axios
-      .get("/auth/me", {
+    // const token = localStorage.getItem("token");
+    // if (!token) {
+    //   setCheckingAuthUserDone(true);
+    //   return;
+    // }
+    axios.get("/auth/login/success", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
         },
       })
       .then((response) => {
         setAuthUser(response.data);
-        addJwt(token);
+        // addJwt(token);
       })
       .catch((err) => {
         console.log(err);

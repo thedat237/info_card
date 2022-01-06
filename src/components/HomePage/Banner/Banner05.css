@@ -1,5 +1,10 @@
+.row-card {
+    border: none !important;
+    box-shadow: none !important;
+}
+
 .demo-card-img {
-    width: 500px;
+    width: 100%;
 }
 
 .demo-card {
@@ -12,10 +17,10 @@
 
 .demo-card-qr {
     position: absolute;
-    top: 15px;
+    top: 17px;
     left: 17px;
     border: 2px solid white;
-    border-radius: 16px;
+    border-radius: 8px;
 }
 
 .demo-card-name {
@@ -31,4 +36,8 @@
 
 .card-demo-luxury {
     width: 100px;
+}
+
+.btn-social-disable {
+    width: 220px;
 }

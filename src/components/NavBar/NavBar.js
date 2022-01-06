@@ -4,14 +4,16 @@ import logo from "../../assets/banner_logo.png"
 import { Link, NavLink } from "react-router-dom"
 import AuthContext from '../../context/auth'
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { DropdownButton, Dropdown} from 'react-bootstrap'
 
 export default function NavBar() {
     const authCtx = useContext(AuthContext)
     const [clicked, setClicked] = useState(false)
 
-    // const logOut = () => {
-    //     localStorage.clear()
-    // }
+    const logout = () => {
+        window.open(`${process.env.REACT_APP_OAUTH_URL}/auth/logout`, '_self')
+        // authCtx = ''
+    }
 
     return (
         <nav className="d-flex justify-content-between container navigation-bars">
@@ -50,9 +52,19 @@ export default function NavBar() {
                 </NavLink>
                 {
                     authCtx.user ?
-                    <div className='p-2 bg-dark text-white rounded navigation-button'>
-                        {authCtx.user.username}
-                    </div> :
+                    <DropdownButton
+                        variant="outline-secondary"
+                        title={authCtx.user.username}
+                    >
+                        <Dropdown.Item>
+                            <NavLink to={`/profile/${authCtx.user._id}`} className='text-decoration-none'>Profile</NavLink>
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                            <NavLink to={`/edit/${authCtx.user._id}`} className='text-decoration-none'>Edit Card</NavLink>
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                    </DropdownButton>
+                    :
                     <Link to="/login" className="text-decoration-none navigation-button">
                         <button className='btn btn-primary'>Tạo thẻ</button>
                     </Link>
